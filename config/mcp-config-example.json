@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "whatsapp": {
+      "command": "uv",
+      "args": ["--directory", "/ABSOLUTE/PATH/TO/whatsapp-mcp/whatsapp-mcp-server", "run", "main.py"]
+    }
+  }
+}

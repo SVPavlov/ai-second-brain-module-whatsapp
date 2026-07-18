@@ -1,0 +1,17 @@
+diff --git a/whatsapp-bridge/main.go b/whatsapp-bridge/main.go
+index 33b39c9..860938e 100644
+--- a/whatsapp-bridge/main.go
++++ b/whatsapp-bridge/main.go
+@@ -735,6 +735,12 @@ func startRESTServer(client *whatsmeow.Client, messageStore *MessageStore, port
+ 			return
+ 		}
+ 
++		// Module default: sending stays off until explicitly enabled.
++		if os.Getenv("WA_SEND_ENABLED") != "true" {
++			http.Error(w, "Sending is disabled by default in this module. Read the risk section in the module README, then set WA_SEND_ENABLED=true to enable.", http.StatusForbidden)
++			return
++		}
++
+ 		// Parse the request body
+ 		var req SendMessageRequest
+ 		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
