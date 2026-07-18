@@ -32,7 +32,7 @@ Built on the MIT-licensed [lharries/whatsapp-mcp](https://github.com/lharries/wh
    ```bash
    cp -r /path/to/this-module/skills/* YOUR-VAULT/.claude/skills/
    ```
-6. **Test:** in your vault, say "whatsapp digest". You should see your recent chats summarized.
+6. **First run must be interactive:** start `claude` in your vault once and accept the workspace-trust dialog (headless runs ignore the permission settings until you do). Then test: say "whatsapp digest". You should see your recent chats summarized.
 
 **Keep it running (optional):** a launchd plist keeps the bridge alive across reboots — see the upstream README. Start manual; automate when you trust it.
 
